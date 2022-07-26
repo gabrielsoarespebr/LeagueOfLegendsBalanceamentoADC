@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends: Estatísticas</title>
+    <link rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/LoL_icon.svg/1200px-LoL_icon.svg.png">
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        .iconedocampeao {
+            width: 5rem;
+            margin: 0 2.5vw 0 2.5vw;
+        }
+
+        #grafico {
+            max-height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>League of Legends: Popularidade vs Taxa de vitória</h1>
+    <h2>Atiradores / AD Carrys (ADCs)</h2>
+    <p>Comparação entre os <u>5 ADCs mais populares</u> e os <u>5 menos populares</u> com o objetivo de verificar o balanceamento do jogo.</p>
+    <canvas id="grafico"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"
+        integrity="sha512-zjlf0U0eJmSo1Le4/zcZI51ks5SjuQXkU0yOdsOBubjSmio9iCUp8XPLkEAADZNBdR9crRy3cniZ65LF2w8sRA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var ctx = document.getElementById("grafico");
+        var chartGraph = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Ezreal", "Sivir", "Ashe", "Jhin", "Kai'Sa", "Aphelios", "Tristana", "Xayah", "Kog'Maw", "Varus"],
+                datasets: [{
+                    label: "Popularidade",
+                    data: [20.7, 19.4, 16.5, 15.9, 15.2, 4.8, 4.7, 4, 2.9, 2.5],
+                    borderWidth: 12,
+                    borderColor: ['rgba(255,255,51,0.95)',
+                        'rgba(255,153,51,0.95)',
+                        'rgba(0,128,155,0.95)',
+                        'rgba(255,51,51,0.95)',
+                        'rgba(255,51,255,0.95)',
+                        'rgba(160,160,160,0.95)',
+                        'rgba(178,255,102,0.95)',
+                        'rgba(255,102,178,0.95)',
+                        'rgba(153,153,0,0.95)',
+                        'rgba(102,0,102,0.95)',
+                    ],
+                    backgroundColor: 'inherit',
+                }, {
+                    label: "Taxa de vitória",
+                    data: [48.6, 53, 50.2, 51, 48.3, 45.5, 49.8, 48, 51.5, 48.2],
+                    borderWidth: 12,
+                    borderColor: 'rgba(0,153,76)',
+                    backgroundColor: 'inherit',
+                }
+                ]
+            }
+        },
+        )
+    </script>
+    <figure>
+        <img class="iconedocampeao"
+            src="https://cdnb.artstation.com/p/assets/images/images/031/645/571/large/eunji-shin-face4.jpg?1604212025"
+            alt="Ezreal">
+        <img class="iconedocampeao"
+            src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/shurima-2016/en_US/c9086fcc7c767c891424c11682e31d1a7635f569/assets/img/champions/sivir/sivir-thumb.jpg"
+            alt="Sivir">
+        <img class="iconedocampeao"
+            src="https://www.mobafire.com/images/champion/square/ashe.png"
+            alt="Ashe">
+        <img class="iconedocampeao"
+            src="https://www.mobafire.com/images/tft/set6/champion/icon/jhin.png"
+            alt="Jhin">
+        <img class="iconedocampeao"
+            src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/kaisa-reveal/pt_BR/4b3ba0751b18398c0fe8d339207ba00a26309de1/assets/img/content/wallpaper/base-icon.jpg"
+            alt="Kai'Sa">
+        <img class="iconedocampeao"
+            src="https://cdn.mobalytics.gg/assets/tft/images/champions/icons/set4/aphelios.png?v=5"
+            alt="Aphelios">
+        <img class="iconedocampeao"
+            src="https://opgg-static.akamaized.net/images/lol/champion/Tristana.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_288&v=1652085576838"
+            alt="Tristana">
+        <img class="iconedocampeao"
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d641ba5e-0fed-400e-bced-8f4e9356f66f/dbe3lb2-66f836e3-6aea-449d-86bd-548dcfcfccf6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q2NDFiYTVlLTBmZWQtNDAwZS1iY2VkLThmNGU5MzU2ZjY2ZlwvZGJlM2xiMi02NmY4MzZlMy02YWVhLTQ0OWQtODZiZC01NDhkY2ZjZmNjZjYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ofoytzdOA8x2CI7avP5HeFkNYsAcveVTH_vjR_ScjiI"
+            alt="Xayah">
+        <img class="iconedocampeao"
+            src="https://cdn.lolalytics.com/generated/champion280px/kogmaw.jpg"
+            alt="Kog'Maw">
+        <img class="iconedocampeao"
+            src="https://www.mobafire.com/images/champion/square/varus.png"
+            alt="Varus">
+    </figure>
+    <footer>Dados retirados de <a href="https://www.leagueofgraphs.com/pt/champions/builds" target="_blank">League of
+            Graphs</a>.</footer>
+</body>
+
+</html>
